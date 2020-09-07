@@ -1,0 +1,117 @@
+#: import FadeTransition kivy.uix.screenmanager.FadeTransition
+#: include ./my_bottom_sheet.kv
+#: include ./monitor.kv
+
+<CustBoxLayout>:
+    orientation: 'vertical'
+    spacing: 5
+    padding: 5
+
+ScreenManagement:
+    transition: FadeTransition()
+    ControlScreen:
+    MonitorScreen:
+
+<ControlScreen>:
+    app_class: app
+    name: "control"
+    BoxLayout:
+        orientation: 'vertical'
+        halign: "center"
+        MDToolbar:
+            id: toolbar
+            title: "Bulamu Ventilator"
+            md_bg_color: app.theme_cls.primary_color
+            background_palette: 'Primary'
+            background_hue: '500'
+            specific_text_color: app.theme_cls.accent_color
+            right_action_items: [["reload", lambda x: print("I'm working too")], ["help-circle-outline", lambda x: print("I'm working")]]
+        BoxLayout:
+            orientation: 'vertical'
+            padding: 5
+            spacing: 5
+            BoxLayout:
+                id: container
+                orientation: 'vertical'
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    padding: 10
+                    spacing: 10
+                    adaptive_height: True
+                    MDLabel:
+                        text: 'Enable bluetooth'
+                        halign: "center"
+                    MDSwitch:
+                        id: bluetooth
+                        active: root.bluetooth_state
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    padding: 5
+                    spacing: 6
+                    adaptive_height: True
+                    MDLabel:
+                        text: ''
+                    MDLabel:
+                        text: 'Available BT Devices'
+                        halign: 'center'
+                    MDLabel:
+                        text: 'Paired Devices'
+                        halign: 'center'
+                    MDLabel:
+                        text: ''
+                MDGridLayout:
+                    cols: 4
+                    rows: 1
+                    padding: 5
+                    spacing: 20
+                    adaptive_height: True
+                    MDLabel:
+                        text: ''
+                        size_hint_x: .1
+                    MDDropDownItem:
+                        id: available_devices
+                        text: 'View Devices'
+                        on_release: root.see_active_devices()
+                    MDDropDownItem:
+                        id: paired_devices
+                        text: 'View Devices'
+                        on_release: root.see_paired_devices()
+                    MDLabel:
+                        text: ''
+                        size_hint_x: .1
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    padding: 5
+                    spacing: 6
+                    adaptive_height: True
+                    MDLabel:
+                        text: 'Connected Device:'
+                    MDFlatButton:
+                        text: 'Device Name'
+                    MDLabel:
+                        text: ''
+                    MDRectangleFlatButton:
+                        text: "Disconnect"
+                        text_color: 0, 0, 1, 1
+                        md_bg_color: 1, 1, 0, 1
+                MDBoxLayout:
+                    orientation: 'horizontal'
+                    padding: 5
+                    spacing: 6
+                    adaptive_height: True
+                    MDLabel:
+                        text: ''
+                        size_hint_x: .3
+                    MDRoundFlatIconButton:
+                        text: "Set Parameters"
+                        md_bg_color: 1, 0, 1, 1
+                        icon: "snowflake"
+                        size_hint_x: .3
+                        on_release: app.show_bottom_sheet(screen = root)
+                    MDLabel:
+                        text: ''
+                        size_hint_x: .3
+
+                MDBoxLayout:
+                    MDLabel:
+                        text: ''

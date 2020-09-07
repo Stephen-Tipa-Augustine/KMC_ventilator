@@ -1,0 +1,530 @@
+#: import PressureChart graphs.PressureChart
+#: import FlowChart graphs.FlowChart
+#: import VolumeChart graphs.VolumeChart
+
+<MonitorScreen>:
+    name: "monitor"
+    MDBoxLayout:
+        orientation: 'vertical'
+        halign: "center"
+        MDToolbar:
+            id: toolbar
+            title: "Bulamu Ventilator"
+            md_bg_color: app.theme_cls.primary_color
+            background_palette: 'Primary'
+            background_hue: '300'
+            specific_text_color: app.theme_cls.accent_color
+            left_action_items: [["chevron-triple-left", lambda x: root.go_back_to_control()]]
+            right_action_items: [["pause-circle", lambda x: print('Pause updating graphs')]]
+        ScrollView:
+            canvas.before:
+                Color:
+                    rgba: 0,0,0,.8
+                Rectangle:
+                    size: self.size
+                    pos: self.pos
+            MDBoxLayout:
+                orientation: 'vertical'
+                BoxLayout:
+                    orientation: 'horizontal'
+                    padding: 2
+                    spacing: 1
+                    MDBoxLayout:
+                        orientation: 'vertical'
+                        padding: 3
+                        spacing: 1
+                        PressureChart:
+                        FlowChart:
+                        VolumeChart:
+                    MDBoxLayout:
+                        size_hint_x: .26
+                        spacing: 1
+                        padding: 1
+                        orientation: 'vertical'
+                        MDBoxLayout:
+                            spacing: 1
+                            padding: 1
+                            orientation: 'horizontal'
+                            MDBoxLayout:
+                                orientation: 'vertical'
+                                padding: 2
+                                spacing: 3
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Ppeek'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "46"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "cmH20"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Pthreshold'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "46.0"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "cmH20"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Actual PEEP'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "0.0"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "cmH20"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Actual IE Ratio'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "1:1.00"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'parameter'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "3.1"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "'"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'parameter'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "3.2"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "'"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'parameter'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "11776.0"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "unit"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Parameter'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "46"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "unit"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                            MDBoxLayout:
+                                orientation: 'vertical'
+                                padding: 2
+                                spacing: 3
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Vent State'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "ON"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Pressure Limit'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "5"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "cmH20"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Set PEEP'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "5"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "cmH20"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Set IE Ratio'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "1:1"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Set IPM'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "10"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "I/min"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Inspiration Pause'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "OFF"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Tidal Volume'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "700"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+                                    MDSeparator:
+                                        height: "1dp"
+                                    MDLabel:
+                                        text: "ml"
+                                        halign: 'center'
+                                        size_hint_y: .1
+                                        theme_text_color: "Custom"
+                                        text_color: .1,1,0,1
+                                        font_size: 12
+                                MDCard:
+                                    orientation: 'vertical'
+                                    padding: "4dp"
+                                    size_hint: None, None
+                                    size: "130dp", "64dp"
+                                    focus_behavior: True
+                                    ripple_behavior: True
+                                    MDLabel:
+                                        text: 'Asist'
+                                        halign: 'center'
+                                        font_size: 16
+                                        theme_text_color: "Custom"
+                                        text_color: 0, 0, 1, 1
+                                    MDSeparator:
+                                        height: "1dp"
+                                    LabelButton:
+                                        id: breaths_per_minute
+                                        text: "OFF"
+                                        halign: 'center'
+                                        theme_text_color: "Custom"
+                                        text_color: 0,.1,1,1
+                                        on_release: print('Label acting as a button')
+
+                        MDCard:
+                            orientation: 'vertical'
+                            padding: "4dp"
+                            size_hint: None, None
+                            size: "275dp", "100dp"
+                            focus_behavior: True
+                            ripple_behavior: True
+                            MDLabel:
+                                text: 'Alarms'
+                                halign: 'center'
+                                font_size: 16
+                                theme_text_color: "Custom"
+                                text_color: 0, 0, 1, 1
+                            MDSeparator:
+                                height: "1dp"
+                            LabelButton:
+                                id: breaths_per_minute
+                                text: "HP, HV"
+                                halign: 'center'
+                                theme_text_color: "Custom"
+                                text_color: 1,0,0,1
+                                on_release: print('Label acting as a button')
+
